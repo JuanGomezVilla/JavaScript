@@ -1,0 +1,47 @@
+<html>
+<head>
+	<title>Bloque 1</title>
+	<meta charset="UTF-8">
+</head>
+<body>
+	<canvas id="canvas" width="480" height="270" style="border:1px solid #000000"></canvas>
+	<script>
+
+		var canvas, ctx, time;
+
+		window.onload = function(){
+			canvas 	= document.getElementById("canvas");
+			ctx 	= canvas.getContext("2d");
+			time 	= window.requestAnimationFrame(update);
+		}
+
+		function update(){
+			time = window.requestAnimationFrame(update);
+			block.update();
+		}
+
+		var block = {
+			x:0,
+			y:0,
+			w:5,
+			h:5,
+			speedX: 5,
+			speedY: 5,
+			update: function(){
+				this.x += this.speedX;
+				this.y += this.speedY;
+
+				if(this.y <= 0) this.speedY = 5;
+				if(this.x <= 0) this.speedX = 5;
+
+				if(this.x + this.w >= 480) this.speedX = -5;
+				if(this.y + this.w >= 270) this.speedY = -5;
+
+				ctx.fillStyle = "#000000";
+				ctx.fillRect(this.x, this.y, this.w, this.h);
+			}
+		}
+
+	</script>
+</body>
+</html>
