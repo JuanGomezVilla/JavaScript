@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <title>Suma</title>
+        <meta charset="UTF-8">
+        <style>
+
+            body {
+                font: 16px Arial;
+            }
+
+        </style>
+    </head>
+    <body>
+        <input id="cajaNumero1" type="number" placeholder="Número 1..."/>
+        <input id="cajaNumero2" type="number" placeholder="Número 2..."/>
+        <button onclick="sumar()">Sumar</button>
+        <p><b>Resultado:</b>&nbsp;<label id="textoResultado">0</label></p>
+        <script>
+            
+            //VARIABLES
+            var cajaNumero1, cajaNumero2, textoResultado;
+            
+            window.onload = function(){
+                //Captura las cajas
+                cajaNumero1 = document.getElementById("cajaNumero1");
+                cajaNumero2 = document.getElementById("cajaNumero2");
+                textoResultado = document.getElementById("textoResultado");
+            }
+            function sumar(){
+                //Obtiene los números y los convierte a enteros
+                var numero1 = Number(cajaNumero1.value);
+                var numero2 = Number(cajaNumero2.value);
+
+                //Imprime el resultado tras realizar la suma
+                var resultado =  numero1 + numero2;
+                textoResultado.innerText = resultado;
+            }
+            
+        </script>
+    </body>
+</html>
